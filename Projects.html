@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+
+.filter-btn:hover,
+.<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -123,6 +125,446 @@ nav a:hover{
 
 .filter-btn:hover,
 .filter-btn.active{
+  background:#222;
+  color:white;
+}
+
+/* PROJECT GRID */
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+
+.project{
+  background:white;
+  border-radius:7px;
+  overflow:hidden;
+  box-shadow:0 3px 12px rgba(0,0,0,.15);
+  transition:transform .25s ease;
+}
+
+.project:hover{
+  transform:translateY(-4px);
+}
+
+.project img{
+  width:100%;
+  height:290px;
+  object-fit:cover;
+  display:block;
+  cursor:pointer;
+}
+
+.project-info{
+  padding:18px;
+}
+
+.project-info h3{
+  font-size:20px;
+  margin-bottom:5px;
+}
+
+.project-info p{
+  color:#666;
+}
+
+/* LIGHTBOX */
+
+.lightbox{
+  display:none;
+  position:fixed;
+  z-index:1000;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,.92);
+  align-items:center;
+  justify-content:center;
+  padding:25px;
+}
+
+.lightbox img{
+  max-width:95%;
+  max-height:90vh;
+  object-fit:contain;
+}
+
+.close{
+  position:absolute;
+  top:15px;
+  right:25px;
+  color:white;
+  font-size:45px;
+  cursor:pointer;
+}
+
+/* CTA */
+
+.cta{
+  background:#1b1b1b;
+  color:white;
+  text-align:center;
+  padding:70px 20px;
+}
+
+.cta h2{
+  font-size:36px;
+  margin-bottom:10px;
+}
+
+.cta p{
+  margin-bottom:25px;
+  font-size:18px;
+}
+
+.btn{
+  display:inline-block;
+  background:#c8a878;
+  color:#111;
+  padding:14px 28px;
+  text-decoration:none;
+  font-weight:bold;
+  border-radius:4px;
+}
+
+.btn:hover{
+  background:white;
+}
+
+/* FOOTER */
+
+footer{
+  background:#101010;
+  color:white;
+  text-align:center;
+  padding:25px;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+  header{
+    flex-direction:column;
+    gap:12px;
+  }
+
+  nav{
+    text-align:center;
+  }
+
+  nav a{
+    margin:0 6px;
+    font-size:14px;
+  }
+
+  .hero{
+    min-height:350px;
+  }
+
+  .hero h1{
+    font-size:40px;
+  }
+
+  .hero p{
+    font-size:18px;
+  }
+
+  .gallery{
+    grid-template-columns:1fr;
+  }
+
+  .project img{
+    height:300px;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">I'VE BEEN FRAMED</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="index.html#services">Services</a>
+<a href="projects.html">Completed Projects</a>
+<a href="index.html#contact">Contact</a>
+</nav>
+
+</header>
+
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>Completed Projects</h1>
+
+<p>
+Take a look at some of the work we've completed for homeowners throughout Central Maine.
+</p>
+
+</div>
+
+</section>
+
+
+<main class="container">
+
+<div class="intro">
+
+<h2>Our Work</h2>
+
+<p>
+Quality craftsmanship. Attention to detail. Work we're proud to put our name on.
+</p>
+
+</div>
+
+
+<div class="filters">
+
+<button class="filter-btn active" onclick="filterProjects('all', this)">
+All Projects
+</button>
+
+<button class="filter-btn" onclick="filterProjects('interior', this)">
+Interior
+</button>
+
+<button class="filter-btn" onclick="filterProjects('exterior', this)">
+Exterior
+</button>
+
+<button class="filter-btn" onclick="filterProjects('carpentry', this)">
+Carpentry
+</button>
+
+</div>
+
+
+<div class="gallery">
+
+
+<!-- PROJECT 1 -->
+
+<div class="project" data-category="exterior">
+
+<img src="project-1.jpg"
+alt="Stone siding and window project"
+onclick="openLightbox(this.src)">
+
+<div class="project-info">
+
+<h3>Stone Siding & Windows</h3>
+
+<p>Exterior improvement and finish work.</p>
+
+</div>
+
+</div>
+
+
+<!-- PROJECT 2 -->
+
+<div class="project" data-category="exterior">
+
+<img src="project-2.jpg"
+alt="Exterior carpentry and door project"
+onclick="openLightbox(this.src)">
+
+<div class="project-info">
+
+<h3>Exterior Carpentry & Door Work</h3>
+
+<p>Custom exterior repairs and improvements.</p>
+
+</div>
+
+</div>
+
+
+<!-- PROJECT 3 -->
+
+<div class="project" data-category="exterior">
+
+<img src="project-3.jpg"
+alt="Finished exterior improvement project"
+onclick="openLightbox(this.src)">
+
+<div class="project-info">
+
+<h3>Exterior Improvements</h3>
+
+<p>Quality finish work built to last.</p>
+
+</div>
+
+</div>
+
+
+<!-- PROJECT 4 -->
+
+<div class="project" data-category="interior carpentry">
+
+<img src="20260914_115901.jpg"
+alt="Completed interior home improvement project"
+onclick="openLightbox(this.src)">
+
+<div class="project-info">
+
+<h3>Interior Home Improvement</h3>
+
+<p>Recent completed project by I've Been Framed.</p>
+
+</div>
+
+</div>
+
+
+<!-- PROJECT 5 -->
+
+<div class="project" data-category="interior carpentry">
+
+<img src="20260914_115846.jpg"
+alt="Interior carpentry and finish work"
+onclick="openLightbox(this.src)">
+
+<div class="project-info">
+
+<h3>Interior Finish Carpentry</h3>
+
+<p>Detailed trim, door and finish work.</p>
+
+</div>
+
+</div>
+
+
+<!-- PROJECT 6 -->
+
+<div class="project" data-category="interior carpentry">
+
+<img src="20260914_115842.jpg"
+alt="Custom interior carpentry project"
+onclick="openLightbox(this.src)">
+
+<div class="project-info">
+
+<h3>Custom Carpentry</h3>
+
+<p>Quality craftsmanship and attention to detail.</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</main>
+
+
+<!-- CALL TO ACTION -->
+
+<section class="cta">
+
+<h2>Have a Project in Mind?</h2>
+
+<p>
+No job too small. Let's talk about your next project.
+</p>
+
+<a class="btn" href="index.html#contact">
+GET A FREE ESTIMATE
+</a>
+
+</section>
+
+
+<footer>
+
+<p>© 2026 I've Been Framed. All Rights Reserved.</p>
+
+<p>Done Right. Built to Last.</p>
+
+</footer>
+
+
+<!-- LIGHTBOX -->
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+
+<span class="close">&times;</span>
+
+<img id="lightbox-img" src="" alt="Enlarged project photo">
+
+</div>
+
+
+<script>
+
+function openLightbox(src){
+
+  document.getElementById("lightbox").style.display="flex";
+
+  document.getElementById("lightbox-img").src=src;
+
+}
+
+function closeLightbox(){
+
+  document.getElementById("lightbox").style.display="none";
+
+}
+
+function filterProjects(category, button){
+
+  const projects=document.querySelectorAll(".project");
+
+  const buttons=document.querySelectorAll(".filter-btn");
+
+  buttons.forEach(btn=>{
+    btn.classList.remove("active");
+  });
+
+  button.classList.add("active");
+
+  projects.forEach(project=>{
+
+    if(category==="all"){
+
+      project.style.display="block";
+
+    }else{
+
+      if(project.dataset.category.includes(category)){
+
+        project.style.display="block";
+
+      }else{
+
+        project.style.display="none";
+
+      }
+
+    }
+
+  });
+
+}
+
+</script>
+
+</body>
+</html>{
   background:#222;
   color:white;
 }
