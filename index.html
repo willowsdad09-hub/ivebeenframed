@@ -1,5 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>I've Been Framed | Central Maine Home Repairs & Carpentry</title>
+
+<meta name="description" content="I've Been Framed provides quality home repairs, flooring, exterior repairs, siding, trim, decks, doors, windows and finish carpentry throughout Central Maine.">
+
+<style>
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  line-height:1.6;
+  color:#222;
+  background:#f5f2ec;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+  background:#1c1c1c;
+  color:white;
+  padding:18px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+.logo{
+  font-size:27px;
+  font-weight:bold;
+  letter-spacing:1px;
+}
+
+nav{
+  display:flex;
+  align-items:center;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  margin-left:22px;
+  font-weight:bold;
+}
+
+nav a:hover{
+  color:#c8a878;
+}
+
+/* =========================
+   HERO
+========================= */
+
 .hero{
-  min-height:75vh;
+  min-height:78vh;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -11,110 +82,50 @@
     url("project-3.jpg") center center/cover no-repeat;
 
   color:white;
-}<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>I've Been Framed | Central Maine Home Repairs & Carpentry</title>
-
-<meta name="description" content="I've Been Framed provides quality small home repairs, flooring, exterior repairs, siding, trim, decks, doors, windows and finish carpentry throughout Central Maine.">
-
-<style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-body{
-  font-family:Arial,Helvetica,sans-serif;
-  line-height:1.6;
-  color:#222;
-  background:#f5f2ec;
-}
-
-header{
-  background:#1c1c1c;
-  color:white;
-  padding:20px 6%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  position:sticky;
-  top:0;
-  z-index:10;
-}
-
-.logo{
-  font-size:28px;
-  font-weight:bold;
-  letter-spacing:1px;
-}
-
-nav a{
-  color:white;
-  text-decoration:none;
-  margin-left:20px;
-  font-weight:bold;
-}
-
-nav a:hover{
-  color:#c8a878;
-}
-
-.hero{
-  min-height:75vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:.hero{
-  min-height:75vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:80px 20px;
-
-  background:
-    linear-gradient(rgba(0,0,0,.58),rgba(0,0,0,.58)),
-    url("project-3.jpg") center/cover;
-
-  color:white;
-};
-  padding:80px 20px;
-  background:#1c1c1c;
-  color:white;
 }
 
 .hero-content{
-  max-width:800px;
+  max-width:850px;
 }
 
 .hero h1{
-  font-size:56px;
-  margin-bottom:15px;
+  font-size:60px;
+  line-height:1.1;
+  margin-bottom:18px;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  text-shadow:2px 2px 5px rgba(0,0,0,.7);
 }
 
-.hero p{
-  font-size:22px;
-  margin-bottom:25px;
+.hero .tagline{
+  font-size:27px;
+  font-weight:bold;
+  margin-bottom:12px;
+}
+
+.hero .description{
+  font-size:20px;
+  margin-bottom:30px;
 }
 
 .btn{
   display:inline-block;
   background:#c8a878;
   color:#111;
-  padding:13px 24px;
+  padding:14px 28px;
   text-decoration:none;
   font-weight:bold;
   border-radius:4px;
+  transition:.2s;
 }
 
 .btn:hover{
-  background:#fff;
+  background:white;
 }
+
+/* =========================
+   GENERAL SECTIONS
+========================= */
 
 section{
   padding:70px 6%;
@@ -131,17 +142,30 @@ h2{
   color:#222;
 }
 
+/* =========================
+   ABOUT
+========================= */
+
 .about{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:40px;
+  gap:45px;
   align-items:center;
 }
 
 .about img{
   width:100%;
-  border-radius:6px;
+  border-radius:7px;
+  box-shadow:0 3px 12px rgba(0,0,0,.18);
 }
+
+.about p{
+  font-size:17px;
+}
+
+/* =========================
+   SERVICES
+========================= */
 
 .services{
   background:#1c1c1c;
@@ -168,16 +192,35 @@ h2{
 .service h3{
   color:#c8a878;
   margin-bottom:8px;
+  font-size:21px;
 }
 
-.featured{
+.service p{
+  color:#eee;
+}
+
+/* =========================
+   COMPLETED PROJECTS LINK
+========================= */
+
+.projects-link{
   text-align:center;
   background:#f5f2ec;
 }
 
-.featured h2{
+.projects-link h2{
   margin-bottom:10px;
 }
+
+.projects-link p{
+  margin-bottom:25px;
+  font-size:18px;
+  color:#555;
+}
+
+/* =========================
+   CONTACT
+========================= */
 
 .contact{
   background:#e7e0d5;
@@ -186,11 +229,16 @@ h2{
 .contact-box{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:40px;
+  gap:45px;
 }
 
 .contact-info p{
   margin-bottom:10px;
+  font-size:17px;
+}
+
+.contact-info strong{
+  font-weight:bold;
 }
 
 form{
@@ -201,14 +249,17 @@ form{
 
 input,
 textarea{
-  padding:13px;
+  width:100%;
+  padding:14px;
   border:1px solid #bbb;
   border-radius:4px;
   font-size:16px;
+  font-family:Arial,Helvetica,sans-serif;
 }
 
 textarea{
-  min-height:140px;
+  min-height:150px;
+  resize:vertical;
 }
 
 button{
@@ -227,6 +278,10 @@ button:hover{
   color:#111;
 }
 
+/* =========================
+   FOOTER
+========================= */
+
 footer{
   background:#111;
   color:white;
@@ -234,23 +289,51 @@ footer{
   padding:25px;
 }
 
+footer p{
+  margin:4px 0;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
 @media(max-width:800px){
 
   header{
     flex-direction:column;
-    gap:10px;
+    gap:12px;
+    padding:16px 10px;
+  }
+
+  .logo{
+    font-size:23px;
+  }
+
+  nav{
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:5px;
   }
 
   nav a{
-    margin:0 7px;
+    margin:0 6px;
     font-size:14px;
   }
 
-  .hero h1{
-    font-size:40px;
+  .hero{
+    min-height:70vh;
+    padding:70px 20px;
   }
 
-  .hero p{
+  .hero h1{
+    font-size:42px;
+  }
+
+  .hero .tagline{
+    font-size:23px;
+  }
+
+  .hero .description{
     font-size:18px;
   }
 
@@ -262,44 +345,80 @@ footer{
   .service-grid{
     grid-template-columns:1fr;
   }
+
+  section{
+    padding:55px 6%;
+  }
+
+  h2{
+    font-size:32px;
+  }
+
 }
+
 </style>
 </head>
 
 <body>
 
+
+<!-- =========================
+     HEADER
+========================= -->
+
 <header>
 
-<div class="logo">I'VE BEEN FRAMED</div>
+<div class="logo">
+I'VE BEEN FRAMED
+</div>
 
 <nav>
+
 <a href="#about">About</a>
+
 <a href="#services">Services</a>
+
 <a href="projects.html">Completed Projects</a>
+
 <a href="#contact">Contact</a>
+
 </nav>
 
 </header>
 
 
+<!-- =========================
+     HERO
+========================= -->
+
 <section class="hero">
 
 <div class="hero-content">
 
-<h1>I've Been Framed</h1>
+<h1>
+I've Been Framed
+</h1>
 
-<p>Done Right. Built to Last.</p>
-
-<p>
-Quality home repairs and finish carpentry serving Central Maine.
+<p class="tagline">
+Done Right. Built to Last.
 </p>
 
-<a class="btn" href="#contact">GET A FREE ESTIMATE</a>
+<p class="description">
+Quality home repairs, finish carpentry and exterior improvements serving Central Maine.
+</p>
+
+<a class="btn" href="#contact">
+GET A FREE ESTIMATE
+</a>
 
 </div>
 
 </section>
 
+
+<!-- =========================
+     ABOUT
+========================= -->
 
 <section id="about">
 
@@ -307,79 +426,139 @@ Quality home repairs and finish carpentry serving Central Maine.
 
 <div>
 
-<h2>Quality Craftsmanship</h2>
+<h2>
+Quality Craftsmanship
+</h2>
 
 <p>
 At I've Been Framed, we believe every project deserves quality workmanship and attention to detail.
-From small repairs to finish carpentry and exterior improvements, we take pride in getting the job done right.
 </p>
 
 <br>
 
 <p>
-<strong>NO JOB TOO SMALL. QUALITY THAT SHOWS.</strong>
+From small home repairs to finish carpentry and exterior improvements, we take pride in doing the job right.
+</p>
+
+<br>
+
+<p>
+<strong>
+NO JOB TOO SMALL. QUALITY THAT SHOWS.
+</strong>
 </p>
 
 </div>
 
-<!-- ONLY PROJECT PHOTO ON HOMEPAGE -->
 
-<img src="project-1.jpg" alt="Quality home improvement work">
+<!-- ONLY SECOND PHOTO ON HOMEPAGE -->
+
+<div>
+
+<img
+src="project-1.jpg"
+alt="Quality home improvement project by I've Been Framed">
+
+</div>
 
 </div>
 
 </section>
 
+
+<!-- =========================
+     SERVICES
+========================= -->
 
 <section id="services" class="services">
 
 <div class="container">
 
-<h2>Our Services</h2>
+<h2>
+Our Services
+</h2>
+
 
 <div class="service-grid">
 
+
 <div class="service">
-<h3>Small Home Repairs</h3>
+
+<h3>
+Small Home Repairs
+</h3>
+
 <p>
 Repairs and improvements to keep your home looking and working its best.
 </p>
+
 </div>
 
+
 <div class="service">
-<h3>Flooring</h3>
+
+<h3>
+Flooring
+</h3>
+
 <p>
 Professional flooring installation and replacement for a clean finished look.
 </p>
+
 </div>
 
+
 <div class="service">
-<h3>Exterior Repairs</h3>
+
+<h3>
+Exterior Repairs
+</h3>
+
 <p>
 Siding, trim, decks, steps and other exterior home repairs.
 </p>
+
 </div>
 
+
 <div class="service">
-<h3>Doors & Windows</h3>
+
+<h3>
+Doors & Windows
+</h3>
+
 <p>
 Door and window installation, replacement and finish work.
 </p>
+
 </div>
 
+
 <div class="service">
-<h3>Siding & Trim</h3>
+
+<h3>
+Siding & Trim
+</h3>
+
 <p>
 Exterior siding, trim replacement and detailed finish carpentry.
 </p>
+
 </div>
 
+
 <div class="service">
-<h3>Finish Carpentry</h3>
+
+<h3>
+Finish Carpentry
+</h3>
+
 <p>
 Custom trim, railings, doors and other detailed interior carpentry.
 </p>
+
 </div>
+
 
 </div>
 
@@ -388,17 +567,21 @@ Custom trim, railings, doors and other detailed interior carpentry.
 </section>
 
 
-<section class="featured">
+<!-- =========================
+     COMPLETED PROJECTS
+========================= -->
+
+<section class="projects-link">
 
 <div class="container">
 
-<h2>See Our Completed Projects</h2>
+<h2>
+See Our Completed Projects
+</h2>
 
 <p>
-Check out our completed project gallery to see more of our work.
+Take a look at more of our completed work in our project gallery.
 </p>
-
-<br>
 
 <a class="btn" href="projects.html">
 VIEW COMPLETED PROJECTS
@@ -409,35 +592,55 @@ VIEW COMPLETED PROJECTS
 </section>
 
 
+<!-- =========================
+     CONTACT
+========================= -->
+
 <section id="contact" class="contact">
 
 <div class="container">
 
-<h2>Get in Touch</h2>
+<h2>
+Get in Touch
+</h2>
+
 
 <div class="contact-box">
 
+
 <div class="contact-info">
 
-<p><strong>I've Been Framed</strong></p>
+<p>
+<strong>I've Been Framed</strong>
+</p>
 
-<p>Serving Central Maine</p>
+<p>
+Serving Central Maine
+</p>
 
-<p><strong>Phone:</strong> 207-299-6514</p>
+<p>
+<strong>Phone:</strong>
+207-299-6514
+</p>
 
-<p><strong>Fully Insured</strong></p>
+<p>
+<strong>Fully Insured</strong>
+</p>
 
 <br>
 
 <p>
-Have a small project that needs to get done?
+Have a project that needs to get done?
 Give us a call or send a message for a free estimate.
 </p>
 
 </div>
 
 
-<form action="mailto:2072996514" method="post" enctype="text/plain">
+<form
+action="mailto:2072996514"
+method="post"
+enctype="text/plain">
 
 <input
 type="text"
@@ -467,6 +670,7 @@ SEND REQUEST
 
 </form>
 
+
 </div>
 
 </div>
@@ -474,13 +678,22 @@ SEND REQUEST
 </section>
 
 
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
 
-<p>© 2026 I've Been Framed. All Rights Reserved.</p>
+<p>
+© 2026 I've Been Framed. All Rights Reserved.
+</p>
 
-<p>Done Right. Built to Last.</p>
+<p>
+Done Right. Built to Last.
+</p>
 
 </footer>
+
 
 </body>
 </html>
