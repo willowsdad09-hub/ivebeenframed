@@ -6,7 +6,7 @@
 
 <title>Completed Projects | I've Been Framed</title>
 
-<meta name="description" content="View completed home repair, carpentry, flooring, exterior repair and finish carpentry projects by I've Been Framed in Central Maine.">
+<meta name="description" content="View completed carpentry, home repair, interior and exterior projects by I've Been Framed, serving Central Maine.">
 
 <style>
 *{
@@ -17,22 +17,24 @@
 
 body{
   font-family:Arial,Helvetica,sans-serif;
-  background:#f5f2ec;
+  background:#f4f1eb;
   color:#222;
-  line-height:1.6;
 }
 
 header{
-  background:#1c1c1c;
+  background:#171717;
   color:white;
-  padding:20px 6%;
+  padding:18px 6%;
   display:flex;
   justify-content:space-between;
   align-items:center;
+  position:sticky;
+  top:0;
+  z-index:100;
 }
 
 .logo{
-  font-size:28px;
+  font-size:27px;
   font-weight:bold;
   letter-spacing:1px;
 }
@@ -48,35 +50,45 @@ nav a:hover{
   color:#c8a878;
 }
 
+/* HERO */
+
 .hero{
   background:
-    linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
+    linear-gradient(rgba(0,0,0,.68),rgba(0,0,0,.68)),
     url("project-3.jpg") center/cover;
-  color:white;
+  min-height:420px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   text-align:center;
-  padding:100px 20px;
+  color:white;
+  padding:60px 20px;
+}
+
+.hero-content{
+  max-width:800px;
 }
 
 .hero h1{
-  font-size:52px;
+  font-size:55px;
   margin-bottom:15px;
 }
 
 .hero p{
-  font-size:20px;
-  max-width:700px;
-  margin:auto;
+  font-size:21px;
 }
+
+/* GALLERY */
 
 .container{
   max-width:1200px;
   margin:auto;
-  padding:70px 20px;
+  padding:65px 20px;
 }
 
 .intro{
   text-align:center;
-  margin-bottom:45px;
+  margin-bottom:35px;
 }
 
 .intro h2{
@@ -84,10 +96,43 @@ nav a:hover{
   margin-bottom:10px;
 }
 
+.intro p{
+  font-size:18px;
+  color:#555;
+}
+
+/* FILTER BUTTONS */
+
+.filters{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:35px;
+}
+
+.filter-btn{
+  border:2px solid #222;
+  background:white;
+  color:#222;
+  padding:11px 20px;
+  border-radius:4px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.filter-btn:hover,
+.filter-btn.active{
+  background:#222;
+  color:white;
+}
+
+/* PROJECT GRID */
+
 .gallery{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:22px;
+  gap:24px;
 }
 
 .project{
@@ -95,18 +140,19 @@ nav a:hover{
   border-radius:7px;
   overflow:hidden;
   box-shadow:0 3px 12px rgba(0,0,0,.15);
+  transition:transform .25s ease;
+}
+
+.project:hover{
+  transform:translateY(-4px);
 }
 
 .project img{
   width:100%;
-  height:280px;
+  height:290px;
   object-fit:cover;
   display:block;
-  transition:transform .3s ease;
-}
-
-.project:hover img{
-  transform:scale(1.03);
+  cursor:pointer;
 }
 
 .project-info{
@@ -122,20 +168,54 @@ nav a:hover{
   color:#666;
 }
 
+/* LIGHTBOX */
+
+.lightbox{
+  display:none;
+  position:fixed;
+  z-index:1000;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,.92);
+  align-items:center;
+  justify-content:center;
+  padding:25px;
+}
+
+.lightbox img{
+  max-width:95%;
+  max-height:90vh;
+  object-fit:contain;
+}
+
+.close{
+  position:absolute;
+  top:15px;
+  right:25px;
+  color:white;
+  font-size:45px;
+  cursor:pointer;
+}
+
+/* CTA */
+
 .cta{
-  background:#1c1c1c;
+  background:#1b1b1b;
   color:white;
   text-align:center;
-  padding:65px 20px;
+  padding:70px 20px;
 }
 
 .cta h2{
-  font-size:35px;
+  font-size:36px;
   margin-bottom:10px;
 }
 
 .cta p{
   margin-bottom:25px;
+  font-size:18px;
 }
 
 .btn{
@@ -152,12 +232,16 @@ nav a:hover{
   background:white;
 }
 
+/* FOOTER */
+
 footer{
-  background:#111;
+  background:#101010;
   color:white;
   text-align:center;
   padding:25px;
 }
+
+/* MOBILE */
 
 @media(max-width:800px){
 
@@ -166,13 +250,25 @@ footer{
     gap:12px;
   }
 
+  nav{
+    text-align:center;
+  }
+
   nav a{
-    margin:0 7px;
+    margin:0 6px;
     font-size:14px;
+  }
+
+  .hero{
+    min-height:350px;
   }
 
   .hero h1{
     font-size:40px;
+  }
+
+  .hero p{
+    font-size:18px;
   }
 
   .gallery{
@@ -182,6 +278,7 @@ footer{
   .project img{
     height:300px;
   }
+
 }
 </style>
 </head>
@@ -204,11 +301,15 @@ footer{
 
 <section class="hero">
 
+<div class="hero-content">
+
 <h1>Completed Projects</h1>
 
 <p>
-Quality craftsmanship. Attention to detail. Work we're proud to put our name on.
+Take a look at some of the work we've completed for homeowners throughout Central Maine.
 </p>
+
+</div>
 
 </section>
 
@@ -220,8 +321,29 @@ Quality craftsmanship. Attention to detail. Work we're proud to put our name on.
 <h2>Our Work</h2>
 
 <p>
-Take a look at some of our completed home improvement and carpentry projects.
+Quality craftsmanship. Attention to detail. Work we're proud to put our name on.
 </p>
+
+</div>
+
+
+<div class="filters">
+
+<button class="filter-btn active" onclick="filterProjects('all', this)">
+All Projects
+</button>
+
+<button class="filter-btn" onclick="filterProjects('interior', this)">
+Interior
+</button>
+
+<button class="filter-btn" onclick="filterProjects('exterior', this)">
+Exterior
+</button>
+
+<button class="filter-btn" onclick="filterProjects('carpentry', this)">
+Carpentry
+</button>
 
 </div>
 
@@ -229,73 +351,115 @@ Take a look at some of our completed home improvement and carpentry projects.
 <div class="gallery">
 
 
-<div class="project">
+<!-- PROJECT 1 -->
 
-<img src="project-1.jpg" alt="Stone siding and window project">
+<div class="project" data-category="exterior">
+
+<img src="project-1.jpg"
+alt="Stone siding and window project"
+onclick="openLightbox(this.src)">
 
 <div class="project-info">
+
 <h3>Stone Siding & Windows</h3>
+
 <p>Exterior improvement and finish work.</p>
-</div>
 
 </div>
 
+</div>
 
-<div class="project">
 
-<img src="project-2.jpg" alt="Exterior carpentry and door project">
+<!-- PROJECT 2 -->
+
+<div class="project" data-category="exterior">
+
+<img src="project-2.jpg"
+alt="Exterior carpentry and door project"
+onclick="openLightbox(this.src)">
 
 <div class="project-info">
+
 <h3>Exterior Carpentry & Door Work</h3>
+
 <p>Custom exterior repairs and improvements.</p>
-</div>
 
 </div>
 
+</div>
 
-<div class="project">
 
-<img src="project-3.jpg" alt="Finished exterior improvement project">
+<!-- PROJECT 3 -->
+
+<div class="project" data-category="exterior">
+
+<img src="project-3.jpg"
+alt="Finished exterior improvement project"
+onclick="openLightbox(this.src)">
 
 <div class="project-info">
+
 <h3>Exterior Improvements</h3>
+
 <p>Quality finish work built to last.</p>
-</div>
 
 </div>
 
+</div>
 
-<div class="project">
 
-<img src="20260914_115901.jpg" alt="Completed home improvement project">
+<!-- PROJECT 4 -->
+
+<div class="project" data-category="interior carpentry">
+
+<img src="20260914_115901.jpg"
+alt="Completed interior home improvement project"
+onclick="openLightbox(this.src)">
 
 <div class="project-info">
-<h3>Completed Home Improvement</h3>
-<p>Recent work by I've Been Framed.</p>
-</div>
+
+<h3>Interior Home Improvement</h3>
+
+<p>Recent completed project by I've Been Framed.</p>
 
 </div>
 
+</div>
 
-<div class="project">
 
-<img src="20260914_115846.jpg" alt="Interior carpentry and finish work">
+<!-- PROJECT 5 -->
+
+<div class="project" data-category="interior carpentry">
+
+<img src="20260914_115846.jpg"
+alt="Interior carpentry and finish work"
+onclick="openLightbox(this.src)">
 
 <div class="project-info">
-<h3>Interior Carpentry</h3>
-<p>Detailed finish carpentry and interior improvements.</p>
-</div>
+
+<h3>Interior Finish Carpentry</h3>
+
+<p>Detailed trim, door and finish work.</p>
 
 </div>
 
+</div>
 
-<div class="project">
 
-<img src="20260914_115842.jpg" alt="Custom carpentry project">
+<!-- PROJECT 6 -->
+
+<div class="project" data-category="interior carpentry">
+
+<img src="20260914_115842.jpg"
+alt="Custom interior carpentry project"
+onclick="openLightbox(this.src)">
 
 <div class="project-info">
+
 <h3>Custom Carpentry</h3>
+
 <p>Quality craftsmanship and attention to detail.</p>
+
 </div>
 
 </div>
@@ -306,15 +470,19 @@ Take a look at some of our completed home improvement and carpentry projects.
 </main>
 
 
+<!-- CALL TO ACTION -->
+
 <section class="cta">
 
 <h2>Have a Project in Mind?</h2>
 
 <p>
-No job too small. Get in touch for a free estimate.
+No job too small. Let's talk about your next project.
 </p>
 
-<a class="btn" href="index.html#contact">Request an Estimate</a>
+<a class="btn" href="index.html#contact">
+GET A FREE ESTIMATE
+</a>
 
 </section>
 
@@ -326,6 +494,72 @@ No job too small. Get in touch for a free estimate.
 <p>Done Right. Built to Last.</p>
 
 </footer>
+
+
+<!-- LIGHTBOX -->
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+
+<span class="close">&times;</span>
+
+<img id="lightbox-img" src="" alt="Enlarged project photo">
+
+</div>
+
+
+<script>
+
+function openLightbox(src){
+
+  document.getElementById("lightbox").style.display="flex";
+
+  document.getElementById("lightbox-img").src=src;
+
+}
+
+function closeLightbox(){
+
+  document.getElementById("lightbox").style.display="none";
+
+}
+
+function filterProjects(category, button){
+
+  const projects=document.querySelectorAll(".project");
+
+  const buttons=document.querySelectorAll(".filter-btn");
+
+  buttons.forEach(btn=>{
+    btn.classList.remove("active");
+  });
+
+  button.classList.add("active");
+
+  projects.forEach(project=>{
+
+    if(category==="all"){
+
+      project.style.display="block";
+
+    }else{
+
+      if(project.dataset.category.includes(category)){
+
+        project.style.display="block";
+
+      }else{
+
+        project.style.display="none";
+
+      }
+
+    }
+
+  });
+
+}
+
+</script>
 
 </body>
 </html>
