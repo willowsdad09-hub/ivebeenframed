@@ -1,7 +1,493 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
+<meta charset="utf-8<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>I've Been Framed | Central Maine Home Repairs & Carpentry</title>
+
+<meta name="description" content="I've Been Framed provides quality small home repairs, flooring, exterior repairs, siding, trim, decks, doors and windows throughout Central Maine.">
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  line-height:1.6;
+  color:#222;
+  background:#f5f2ec;
+}
+
+header{
+  background:#1c1c1c;
+  color:white;
+  padding:20px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+
+.logo{
+  font-size:28px;
+  font-weight:bold;
+  letter-spacing:1px;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  margin-left:20px;
+  font-weight:bold;
+}
+
+nav a:hover{
+  color:#c8a878;
+}
+
+.hero{
+  min-height:75vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:80px 20px;
+  background:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+    url("project-3.jpg") center/cover;
+  color:white;
+}
+
+.hero-content{
+  max-width:800px;
+}
+
+.hero h1{
+  font-size:56px;
+  margin-bottom:15px;
+}
+
+.hero p{
+  font-size:22px;
+  margin-bottom:25px;
+}
+
+.btn{
+  display:inline-block;
+  background:#c8a878;
+  color:#111;
+  padding:13px 24px;
+  text-decoration:none;
+  font-weight:bold;
+  border-radius:4px;
+}
+
+.btn:hover{
+  background:#fff;
+}
+
+section{
+  padding:70px 6%;
+}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+}
+
+h2{
+  font-size:38px;
+  margin-bottom:15px;
+  color:#222;
+}
+
+.about{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:center;
+}
+
+.about img{
+  width:100%;
+  border-radius:6px;
+}
+
+.services{
+  background:#1c1c1c;
+  color:white;
+}
+
+.services h2{
+  color:white;
+}
+
+.service-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+  margin-top:30px;
+}
+
+.service{
+  background:#292929;
+  padding:25px;
+  border-radius:6px;
+}
+
+.service h3{
+  color:#c8a878;
+  margin-bottom:8px;
+}
+
+.projects{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-top:28px;
+}
+
+.projects figure{
+  background:white;
+  border-radius:6px;
+  overflow:hidden;
+  box-shadow:0 2px 8px rgba(0,0,0,.12);
+}
+
+.projects img{
+  width:100%;
+  height:250px;
+  object-fit:cover;
+  display:block;
+}
+
+.projects figcaption{
+  padding:15px;
+  font-weight:bold;
+}
+
+.contact{
+  background:#e7e0d5;
+}
+
+.contact-box{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+}
+
+.contact-info p{
+  margin-bottom:10px;
+}
+
+form{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+input,
+textarea{
+  padding:13px;
+  border:1px solid #bbb;
+  border-radius:4px;
+  font-size:16px;
+}
+
+textarea{
+  min-height:140px;
+}
+
+button{
+  background:#1c1c1c;
+  color:white;
+  border:none;
+  padding:14px;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+  border-radius:4px;
+}
+
+button:hover{
+  background:#c8a878;
+  color:#111;
+}
+
+footer{
+  background:#111;
+  color:white;
+  text-align:center;
+  padding:25px;
+}
+
+@media(max-width:800px){
+
+  header{
+    flex-direction:column;
+    gap:10px;
+  }
+
+  nav a{
+    margin:0 8px;
+    font-size:14px;
+  }
+
+  .hero h1{
+    font-size:40px;
+  }
+
+  .hero p{
+    font-size:18px;
+  }
+
+  .about,
+  .contact-box{
+    grid-template-columns:1fr;
+  }
+
+  .service-grid{
+    grid-template-columns:1fr;
+  }
+
+  .projects{
+    grid-template-columns:1fr;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">I'VE BEEN FRAMED</div>
+
+<nav>
+<a href="#about">About</a>
+<a href="#services">Services</a>
+<a href="#work">Our Work</a>
+<a href="#contact">Contact</a>
+</nav>
+
+</header>
+
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>I've Been Framed</h1>
+
+<p>Done Right. Built to Last.</p>
+
+<p>Quality home repairs and finish carpentry serving Central Maine.</p>
+
+<a class="btn" href="#contact">Get a Free Estimate</a>
+
+</div>
+
+</section>
+
+
+<section id="about">
+
+<div class="container about">
+
+<div>
+
+<h2>Quality Craftsmanship</h2>
+
+<p>
+At I've Been Framed, we believe every project deserves quality workmanship and attention to detail.
+From small repairs to finish carpentry and exterior improvements, we take pride in getting the job done right.
+</p>
+
+<br>
+
+<p>
+<strong>NO JOB TOO SMALL. QUALITY THAT SHOWS.</strong>
+</p>
+
+</div>
+
+<img src="project-1.jpg" alt="Quality home improvement work">
+
+</div>
+
+</section>
+
+
+<section id="services" class="services">
+
+<div class="container">
+
+<h2>Our Services</h2>
+
+<div class="service-grid">
+
+<div class="service">
+<h3>Small Home Repairs</h3>
+<p>Repairs and improvements to keep your home looking and working its best.</p>
+</div>
+
+<div class="service">
+<h3>Flooring</h3>
+<p>Professional flooring installation and replacement for a clean finished look.</p>
+</div>
+
+<div class="service">
+<h3>Exterior Repairs</h3>
+<p>Siding, trim, decks, steps and other exterior home repairs.</p>
+</div>
+
+<div class="service">
+<h3>Doors & Windows</h3>
+<p>Door and window installation, replacement and finish work.</p>
+</div>
+
+<div class="service">
+<h3>Siding & Trim</h3>
+<p>Exterior siding, trim replacement and detailed finish carpentry.</p>
+</div>
+
+<div class="service">
+<h3>Finish Carpentry</h3>
+<p>Custom trim, railings, doors and other detailed interior carpentry.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="work">
+
+<div class="container">
+
+<h2>Recent Projects</h2>
+
+<p>
+Here are some of our recent projects, showcasing quality craftsmanship,
+interior carpentry, exterior repairs, flooring, doors, trim and more.
+</p>
+
+
+<div class="projects">
+
+<figure>
+<img src="project-1.jpg" alt="Stone siding and windows">
+<figcaption>Stone siding & windows</figcaption>
+</figure>
+
+
+<figure>
+<img src="project-2.jpg" alt="Exterior carpentry and door work">
+<figcaption>Exterior carpentry & door work</figcaption>
+</figure>
+
+
+<figure>
+<img src="project-3.jpg" alt="Finished exterior improvements">
+<figcaption>Finished exterior improvements</figcaption>
+</figure>
+
+
+<figure>
+<img src="20260914_115901.jpg" alt="Recent home improvement project">
+<figcaption>Recent home improvement project</figcaption>
+</figure>
+
+
+<figure>
+<img src="20260914_115846.jpg" alt="Interior carpentry and finish work">
+<figcaption>Interior carpentry & finish work</figcaption>
+</figure>
+
+
+<figure>
+<img src="20260914_115842.jpg" alt="Custom carpentry and home improvements">
+<figcaption>Custom carpentry & home improvements</figcaption>
+</figure>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="contact" class="contact">
+
+<div class="container">
+
+<h2>Get in Touch</h2>
+
+<div class="contact-box">
+
+<div class="contact-info">
+
+<p><strong>I've Been Framed</strong></p>
+
+<p>Serving Central Maine</p>
+
+<p><strong>Phone:</strong> 207-299-6514</p>
+
+<p><strong>Fully Insured</strong></p>
+
+<br>
+
+<p>
+Have a small project that needs to get done?
+Give us a call or send a message for a free estimate.
+</p>
+
+</div>
+
+
+<form action="mailto:2072996514" method="post" enctype="text/plain">
+
+<input type="text" name="Name" placeholder="Your Name" required>
+
+<input type="email" name="Email" placeholder="Your Email" required>
+
+<input type="text" name="Phone" placeholder="Your Phone">
+
+<textarea name="Message" placeholder="Tell us about your project"></textarea>
+
+<button type="submit">Send Request</button>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<p>© 2026 I've Been Framed. All Rights Reserved.</p>
+
+<p>Done Right. Built to Last.</p>
+
+</footer>
+
+</body>
+</html>>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>I’ve Been Framed | Home Repairs & Improvements | Central Maine</title>
 <meta name="description" content="I’ve Been Framed provides quality home repairs, flooring, interior and exterior improvements, doors, trim and finish work throughout Central Maine. Call 207-299-6514.">
