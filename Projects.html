@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Completed Projects | I've Been Framed</title>
 
 <style>
@@ -12,14 +13,14 @@
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   background: #f5f5f5;
   color: #222;
 }
 
 header {
   background: #111;
-  padding: 15px 20px;
+  padding: 18px;
   text-align: center;
 }
 
@@ -37,13 +38,13 @@ header a {
 
 h1 {
   text-align: center;
-  margin-bottom: 10px;
+  margin: 0 0 10px;
 }
 
 .intro {
   text-align: center;
-  margin-bottom: 30px;
   color: #666;
+  margin-bottom: 30px;
 }
 
 .filters {
@@ -55,12 +56,13 @@ h1 {
 }
 
 .filter-btn {
-  border: none;
+  border: 0;
   background: #222;
   color: white;
-  padding: 10px 18px;
+  padding: 11px 20px;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 15px;
 }
 
 .filter-btn:hover,
@@ -114,4 +116,302 @@ h1 {
   position: fixed;
   z-index: 9999;
   inset: 0;
-  background: rgba(0,0,0,.9
+  background: rgba(0,0,0,.9);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.lightbox img {
+  max-width: 95%;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  color: white;
+  font-size: 45px;
+  cursor: pointer;
+}
+
+footer {
+  text-align: center;
+  padding: 30px 20px;
+  color: #777;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html">← Back to I've Been Framed</a>
+</header>
+
+<div class="container">
+
+<h1>Completed Projects</h1>
+
+<p class="intro">
+Take a look at some of our recent home improvement and carpentry projects.
+</p>
+
+<div class="filters">
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="interior">Interior</button>
+  <button class="filter-btn" data-filter="exterior">Exterior</button>
+  <button class="filter-btn" data-filter="carpentry">Carpentry</button>
+</div>
+
+<div id="gallery" class="gallery">
+  <div class="loading">Loading completed projects...</div>
+</div>
+
+</div>
+
+<div id="lightbox" class="lightbox">
+  <span class="close">&times;</span>
+  <img id="lightbox-img" src="" alt="Completed project">
+</div>
+
+<footer>
+© I've Been Framed — Serving Central Maine
+</footer>
+
+<script>
+
+const GITHUB_API =
+"https://api.github.com/repos/willowsdad09-hub/ivebeenframed/contents/";
+
+const existingInfo = {
+
+"project-1.jpg": {
+title: "Stone Siding & Windows",
+category: "exterior"
+},
+
+"project-2.jpg": {
+title: "Exterior Carpentry & Door Work",
+category: "exterior"
+},
+
+"project-3.jpg": {
+title: "Exterior Improvements",
+category: "exterior"
+},
+
+"20260914_115901.jpg": {
+title: "Interior Home Improvement",
+category: "interior"
+},
+
+"20260914_115846.jpg": {
+title: "Interior Finish Carpentry",
+category: "carpentry"
+},
+
+"20260914_115842.jpg": {
+title: "Custom Carpentry",
+category: "carpentry"
+}
+
+};
+
+let projects = [];
+
+function makeTitle(filename) {
+
+return filename
+.replace(/\.[^/.]+$/, "")
+.replace(/[_-]+/g, " ")
+.replace(/\b\w/g, letter => letter.toUpperCase());
+
+}
+
+function getCategory(filename) {
+
+const name = filename.toLowerCase();
+
+if (
+name.includes("interior") ||
+name.includes("kitchen") ||
+name.includes("bath") ||
+name.includes("floor")
+) {
+return "interior";
+}
+
+if (
+name.includes("carpentry") ||
+name.includes("trim") ||
+name.includes("door") ||
+name.includes("window")
+) {
+return "carpentry";
+}
+
+return "exterior";
+
+}
+
+async function loadProjects() {
+
+const gallery = document.getElementById("gallery");
+
+try {
+
+const response = await fetch(GITHUB_API + "?ref=main");
+
+if (!response.ok) {
+throw new Error("GitHub request failed");
+}
+
+const files = await response.json();
+
+projects = files
+
+.filter(file => {
+
+const name = file.name.toLowerCase();
+
+return (
+file.type === "file" &&
+/\.(jpg|jpeg|png|webp)$/i.test(name) &&
+name !== "ive-been-framed-brand.jpg"
+);
+
+})
+
+.map(file => {
+
+const info = existingInfo[file.name];
+
+return {
+
+filename: file.name,
+
+url:
+"https://raw.githubusercontent.com/willowsdad09-hub/ivebeenframed/main/" +
+encodeURIComponent(file.name),
+
+title: info
+? info.title
+: makeTitle(file.name),
+
+category: info
+? info.category
+: getCategory(file.name)
+
+};
+
+});
+
+displayProjects("all");
+
+}
+
+catch (error) {
+
+console.error(error);
+
+gallery.innerHTML =
+"<div class='error'>Project photos could not be loaded. Please refresh the page.</div>";
+
+}
+
+}
+
+function displayProjects(filter) {
+
+const gallery = document.getElementById("gallery");
+
+const filtered = projects.filter(project =>
+filter === "all" ||
+project.category === filter
+);
+
+if (!filtered.length) {
+
+gallery.innerHTML =
+"<div class='error'>No projects found.</div>";
+
+return;
+
+}
+
+gallery.innerHTML = filtered.map(project => `
+
+<div class="card">
+
+<img
+src="${project.url}"
+alt="${project.title}"
+loading="lazy"
+onclick="openLightbox('${project.url}')"
+>
+
+<div class="card-content">
+
+<h3>${project.title}</h3>
+
+<p>
+${project.category.charAt(0).toUpperCase() +
+project.category.slice(1)}
+</p>
+
+</div>
+
+</div>
+
+`).join("");
+
+}
+
+document.querySelectorAll(".filter-btn").forEach(button => {
+
+button.addEventListener("click", () => {
+
+document.querySelectorAll(".filter-btn")
+.forEach(btn => btn.classList.remove("active"));
+
+button.classList.add("active");
+
+displayProjects(button.dataset.filter);
+
+});
+
+});
+
+function openLightbox(url) {
+
+document.getElementById("lightbox-img").src = url;
+
+document.getElementById("lightbox").style.display = "flex";
+
+}
+
+document.querySelector(".close").onclick = () => {
+
+document.getElementById("lightbox").style.display = "none";
+
+};
+
+document.getElementById("lightbox").onclick = event => {
+
+if (event.target.id === "lightbox") {
+
+document.getElementById("lightbox").style.display = "none";
+
+}
+
+};
+
+loadProjects();
+
+</script>
+
+</body>
+</html>
